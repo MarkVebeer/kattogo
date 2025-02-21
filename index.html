@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cormi Clicker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            width: auto;
+            text-align: center;
+        }
+
+        .container h1, p {
+            color:white;
+        }
+
+        .container button {
+            border: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .kong{
+            background-color: transparent;
+        }
+
+        .container button img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container button img:active {
+            transform: translateY(-10px) scale(1.1);
+        }
+
+        .button-clicked img {
+            animation: bounceUp 0.3s forwards;
+        }
+
+        .floating-image {
+            position: fixed;
+            pointer-events: none;
+            opacity: 1;
+            transition: all 1s ease-out;
+            z-index: 1;
+            transform-origin: center center;
+        }
+
+        .fade-out {
+            opacity: 0;
+            transform: scale(0.5) rotate(45deg);
+        }
+
+        @keyframes bounceUp {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .upgrades {
+            margin-top: 20px;
+        }
+
+        .upgrade-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            z-index: 1000;
+        }
+
+        .upgrade-button:hover {
+            background-color: #45a049;
+        }
+
+        .upgrade-button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body style="background-color: #262626;">
+    <div class="container">
+        <h1>Cormi Clicker</h1>
+        <p>Cupakok: <span id="cookieCount">0</span></p>
+        <p>Per balkatt: <span id="clickPower">1</span></p>
+        <button id="cookieButton" class="kong"><img src="kupak.png" alt=""></button>
+        
+        <div class="upgrades">
+            <h2 style="color: white;">tôi sắp xuất tinh</h2>
+            <button id="upgradeClick" class="upgrade-button">
+                Báttya kattog (Cost: <span id="upgradeClickCost">10</span>)
+            </button>
+            <button id="pedoUpgrade" class="upgrade-button">
+                erik (Cost: <span id="pedoUpgradeCost">1,000,000</span>) - GIFs: <span id="dvdCount">0</span>
+            </button>
+        </div>
+        
+        <style>
+            .dvd-logo {
+                position: fixed;
+                pointer-events: none;
+            }
+        </style>
+
+    <audio id="clickSound" src="poingg.wav" preload="auto"></audio>
+    <audio id="kattogas" src="cattog.wav" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
